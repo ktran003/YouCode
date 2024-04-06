@@ -1,10 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello Welcome to ArcQuest!</Text>
+      <Image source={require('./logo.png')} />
+      <View style={styles.signInButton}>
+        <Button
+          title="Sign In"
+          color="#FEFEFE"
+          onPress={() => Alert.alert('Simple Button pressed')}
+        />
+      </View>
+      <View style={styles.createAccountButton}>
+        <Button
+          title="Create An Account"
+          color="#000000"
+          onPress={() => Alert.alert('Simple Button pressed')}
+        />
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -17,4 +32,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  signInButton: {
+    backgroundColor: 'black',
+    marginTop: 20,
+    paddingHorizontal: 100
+  },
+  createAccountButton: {
+    backgroundColor: 'white',
+    bordercolor: 'black',
+    borderWidth: 2,
+    marginTop: 15,
+    paddingHorizontal: 50
+  }
+
+
 });
