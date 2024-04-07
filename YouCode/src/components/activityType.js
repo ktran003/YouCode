@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: 100,
-        width: 410,
+        width: '100%',
         marginVertical: 10
     },
     activityName: {
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     pointValue: {
         fontFamily: "Arimo_400Regular",
         color: 'white',
-        marginHorizontal: 5,
+        // marginHorizontal: 5,
+        right:25,
         paddingTop: 80
     },
     image: {

@@ -43,7 +43,7 @@ const AccountIcon = () => (
 
 export default function BottomNav() {
     return (
-      <Tab.Navigator  barStyle={{backgroundColor: 'black'}}>
+      <Tab.Navigator  barStyle={{backgroundColor: 'black'}} initialRouteName="Activities" >
         <Tab.Screen name='Shop' component={Shop} options={{ tabBarIcon: ShopIcon }}/>
         <Tab.Screen name='Community' component={Community} options={{ tabBarIcon: CommunityIcon }}/>
         <Tab.Screen name='Activities' component={LandingPage} options={{ tabBarIcon: ActivitiesIcon }}/>
