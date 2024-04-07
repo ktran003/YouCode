@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Pressable } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { GOOGLE_API_KEY } from '../../environments';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -42,11 +42,12 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected, }) {
   );
 }
 
-export default function Map() {
+export default function Map({ navigation }) {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const mapRef = useRef(null)
   const [showDirections, setShowDirections] = useState(false);
+  const { latLong } = null;
 
 
   const moveTo = async (position) => {
@@ -59,7 +60,18 @@ export default function Map() {
 
 
 
-  const onPlaceSelected = (details, flag) => {
+  // const onPlaceSelected = (details, flag) => {
+  //   const set = flag === "origin" ? setOrigin : setDestination;
+  //   const position = {
+  //     latitude: details ? details.geometry.location.lat : 0,
+  //     longitude: details ? details.geometry.location.lng : 0,
+  //   };
+  //   latLong = position;
+  //   set(position);
+  //   moveTo(position);
+  // };
+
+  const onPlaceSelected = (details, flag, handlePositionChange) => {
     const set = flag === "origin" ? setOrigin : setDestination;
     const position = {
       latitude: details ? details.geometry.location.lat : 0,
@@ -67,7 +79,10 @@ export default function Map() {
     };
     set(position);
     moveTo(position);
+    handlePositionChange(position);  // Call the callback with the new position
   };
+
+  //export { onPlaceSelected };
 
   // const onPlaceSelected = (details, flag) => {
   //   const set = flag === "origin" ? setOrigin : setDestination;
@@ -115,6 +130,12 @@ export default function Map() {
           <Text>Enter</Text>
         </TouchableOpacity>
       </View>
+      <Pressable onPress={() => {
+        if (latLong && latLong.latitude && latLong.longitude) {
+          navigation.navigate('Weather', { latitude: latLong.latitude, longitude: latLong.longitude });
+        }
+      }}>        <Text> press here</Text>
+      </Pressable>
 
       {/* <StatusBar style="auto" /> */}
     </View>

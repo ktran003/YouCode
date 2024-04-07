@@ -5,6 +5,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { API_KEY } from '../utils/weatherAPIKey'
 import PropTypes from 'prop-types';
 import { weatherConditions } from '../utils/weatherConditions';
+import { useRoute } from "@react-navigation/native"
+
 
 export default class Weather extends React.Component {
     state = {
@@ -14,9 +16,9 @@ export default class Weather extends React.Component {
         error: null
     };
 
-    componentDidMount() {
-        this.fetchWeather(28.3772, 81.5707)
-    }
+    // componentDidMount() {
+    //     this.fetchWeather(28.3772, 81.5707)
+    // }
 
     fetchWeather(lat = 25, lon = 25) {
         fetch(
@@ -33,8 +35,13 @@ export default class Weather extends React.Component {
     }
 
     render() {
+        const route = useRoute()
+        const latitude = route.params?.latitude
+        const longitude = route.params?.longitude
+        this.fetchWeather(latitude, longitude)
         if (!this.state.isLoading) {
             return (
+
                 <View style={[
                     styles.weatherContainer,
                     { backgroundColor: weatherConditions[this.state.weatherCondition].color }
