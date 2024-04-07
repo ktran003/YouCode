@@ -12,7 +12,7 @@ export default function LoginScreen({ navigation }) {
                 <Button
                     title="Sign In"
                     color="#FEFEFE"
-                    onPress={() => navigation.navigate('LandingPage')}
+                    onPress={() => navigation.navigate('BottomNav')}
                 />
             </View>
             <View style={styles.createAccountButton}>
