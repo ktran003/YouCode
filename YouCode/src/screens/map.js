@@ -31,7 +31,7 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected, }) {
         fetchDetails
         onPress={(data, details = null) => {
           onPlaceSelected(details, GooglePlaceDetail | null);
-          console.log(data, details);
+          //console.log(data, details);
         }}
         query={{
           key: GOOGLE_API_KEY,
@@ -47,7 +47,7 @@ export default function Map({ navigation }) {
   const [destination, setDestination] = useState(null);
   const mapRef = useRef(null)
   const [showDirections, setShowDirections] = useState(false);
-  const { latLong } = null;
+  const [latLong, setLatLong] = useState(null);
 
 
   const moveTo = async (position) => {
@@ -60,29 +60,16 @@ export default function Map({ navigation }) {
 
 
 
-  // const onPlaceSelected = (details, flag) => {
-  //   const set = flag === "origin" ? setOrigin : setDestination;
-  //   const position = {
-  //     latitude: details ? details.geometry.location.lat : 0,
-  //     longitude: details ? details.geometry.location.lng : 0,
-  //   };
-  //   latLong = position;
-  //   set(position);
-  //   moveTo(position);
-  // };
-
-  const onPlaceSelected = (details, flag, handlePositionChange) => {
+  const onPlaceSelected = (details, flag) => {
     const set = flag === "origin" ? setOrigin : setDestination;
     const position = {
       latitude: details ? details.geometry.location.lat : 0,
       longitude: details ? details.geometry.location.lng : 0,
     };
+    setLatLong(position);
     set(position);
     moveTo(position);
-    handlePositionChange(position);  // Call the callback with the new position
   };
-
-  //export { onPlaceSelected };
 
   // const onPlaceSelected = (details, flag) => {
   //   const set = flag === "origin" ? setOrigin : setDestination;
@@ -130,11 +117,13 @@ export default function Map({ navigation }) {
           <Text>Enter</Text>
         </TouchableOpacity>
       </View>
-      <Pressable onPress={() => {
+      <Pressable style={styles.kim} onPress={() => {
         if (latLong && latLong.latitude && latLong.longitude) {
+          console.log(latLong);
           navigation.navigate('Weather', { latitude: latLong.latitude, longitude: latLong.longitude });
         }
-      }}>        <Text> press here</Text>
+      }}>
+        <Text> press here</Text>
       </Pressable>
 
       {/* <StatusBar style="auto" /> */}
@@ -143,6 +132,9 @@ export default function Map({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  kim: {
+    marginBottom: 50
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
