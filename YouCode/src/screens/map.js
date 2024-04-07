@@ -194,15 +194,16 @@ export default function Map({ navigation }) {
       <BottomDrawer isOpen={isBottomSheetOpen} onClose={handleCloseBottomSheet}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <View style={styles.drawerContent}>
-
-            <TrailsCard
-              title="Grouse Grind Trail"
-              time="2.5"
-              distance="2.5"
-              elevation="800"
-              sideText="Mother Nature's Stairmaster"
-              difficulty="HARD"
-            />
+            <Pressable onPress={() => { setIsBottomSheetOpen(false); navigation.navigate('Progress'); }}>
+              <TrailsCard
+                title="Grouse Grind Trail"
+                time="2.5"
+                distance="2.5"
+                elevation="800"
+                sideText="Mother Nature's Stairmaster"
+                difficulty="HARD"
+              />
+            </Pressable>
             <TrailsCard
               title="BCMC Trail"
               time="2.5"

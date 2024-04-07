@@ -32,7 +32,9 @@ const CommunityIcon = () => (
 const ActivitiesIcon = () => (
   <Image
     source={require('../assets/Bird_Logo.png')}
+
     style={{ width: 50, height: 35, bottom: 0, left: 4 }}
+
   />
 );
 const DiscoverIcon = () => (
@@ -66,6 +68,7 @@ const BottomNav = () => {
       <Tab.Screen name='Account' component={Account} options={{ tabBarIcon: AccountIcon }} />
     </Tab.Navigator>
   );
+
 }
 
 export default BottomNav;
@@ -256,3 +259,6 @@ export default BottomNav;
 // });
 
 // export default AppNavigator;
+
+}
+

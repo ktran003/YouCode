@@ -144,6 +144,7 @@ export default function App() {
 
 
       <Stack.Navigator>
+
       <Stack.Screen name="TrailComplete" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />
 
         <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />

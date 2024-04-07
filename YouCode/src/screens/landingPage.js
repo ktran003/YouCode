@@ -6,6 +6,7 @@ import HeaderCard from '../components/headerCard';
 export default function LandingPage({ navigation }) {
 
     return (
+
         <View >
             <HeaderCard
                 title="ACTIVITIES"
@@ -15,6 +16,7 @@ export default function LandingPage({ navigation }) {
                 {/* <Pressable onPress={() => { navigation.navigate('Progress') }}>
                     <Text>Hiii</Text>
                 </Pressable> */}
+
                 <ActivityType image={require('../assets/mindfulness.png')}
                     activity={'MINDFULNESS'} points={'250 points'} />
                 <Pressable onPress={() => { navigation.navigate('Hiking') }}>
@@ -39,13 +41,9 @@ export default function LandingPage({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        
+
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-
-    },
-    view: {
-        width:'100%'
     }
 });
