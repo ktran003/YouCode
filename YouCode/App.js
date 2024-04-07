@@ -10,7 +10,10 @@ import Discover from './src/screens/discover';
 import LandingPage from './src/screens/landingPage';
 import Map from './src/screens/map';
 import Weather from './src/screens/weather';
+
 import BottomNav from './src/screens/BottomNav';
+
+import Hiking from './src/screens/hiking';
 
 
 const Stack = createNativeStackNavigator();
@@ -53,6 +56,18 @@ export default function App() {
           }}
         />
         <Stack.Screen
+          name="Hiking"
+          component={Hiking}
+          options={{
+            title: 'Hiking',
+            headerStyle: { backgroundColor: 'black' },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
           name="Map"
           component={Map}
           options={{ title: '' }}
@@ -62,6 +77,7 @@ export default function App() {
           component={Weather}
           options={{ title: '' }}
         />
+
         <Stack.Screen
           name="Discover"
           component={Discover}

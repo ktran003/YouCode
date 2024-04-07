@@ -5,9 +5,9 @@ import { StyleSheet, Text, View, Image, Button } from 'react-native';
 export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            
+
             <Image source={require('../assets/logo.png')} />
-            
+
             <View style={styles.signInButton}>
                 <Button
                     title="Sign In"
