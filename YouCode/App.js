@@ -15,29 +15,21 @@ import BottomNav from './src/screens/BottomNav';
 import Hiking from './src/screens/hiking';
 import Progress from './src/screens/progress';
 
-
-import Hiking from './src/screens/hiking';
-
-
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator >
       <Stack.Screen
-        name = "BottomNav"
-        component={BottomNav}
-        />
+        name="Login"
+        component={LoginScreen}
+        options={{ title: 'Login Here' }}
+      />
+      <Stack.Navigator >
         <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ title: 'Login Here' }}
+          name="BottomNav"
+          component={BottomNav}
         />
-
-
-        
         <Stack.Screen screenOptions={{ headerShown: false }}
           name="map"
           component={map}

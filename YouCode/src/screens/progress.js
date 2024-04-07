@@ -26,8 +26,15 @@ export default function Progress({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.metrics}>3.15</Text>
-            <Text style={styles.metrics}>200</Text>
+            <View style={styles.metricContainer}>
+                <Text style={styles.metric}>3.15km </Text>
+                <Text style={styles.metric}>200m</Text>
+            </View>
+            <View style={styles.metricContainer}>
+                <Text style={styles.metricTags}>Distance </Text>
+                <Text style={styles.metricTags}>Elevation</Text>
+            </View>
+            <Text style={styles.clock}>45:17</Text>
         </View>
 
     );
@@ -38,15 +45,31 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'black',
         flex: 1,
+    },
+    metricContainer: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start'
     },
-    metrics: {
+    metric: {
         color: 'white',
         fontFamily: 'Arimo_600SemiBold',
-        fontSize: 50,
+        fontSize: 40,
         marginHorizontal: 20,
         letterSpacing: 2,
         marginTop: 20
+    },
+    metricTags: {
+        fontSize: 16,
+        color: 'white',
+        fontFamily: 'Arimo_400Regular',
+        marginHorizontal: 20,
+
+    },
+    clock: {
+        color: 'white',
+        justifyContent: 'center',
+        alignContent: 'center'
+
     }
 });
