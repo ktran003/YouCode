@@ -1,14 +1,57 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Pressable } from 'react-native';
+
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Modal, ScrollView, Pressable } from 'react-native';
+
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { GOOGLE_API_KEY } from '../../environments';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Constants from 'expo-constants';
-import { useRef, useState } from 'react';
+
+import { startTransition, useRef, useState } from 'react';
+
 import MapViewDirections from "react-native-maps-directions";
+import TrailsCard from '../components/TrailsCard';
+
+
 
 
 const { width, height } = Dimensions.get("window");
+
+
+const BottomDrawer = ({ children, isOpen, onClose }) => {
+  const windowHeight = Dimensions.get('window').height;
+  const windowWidth = Dimensions.get('window').width;
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onClose} style={styles.button}>
+        <Text style={styles.buttonText}>Close Drawer</Text>
+      </TouchableOpacity>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={isOpen}
+        onRequestClose={onClose}
+      >
+        <View style={[styles.bottomSheet, { height: windowHeight * 0.4 }]}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={onClose}>
+              <Text style={styles.closeButton}>Close</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.content}>
+            {children}
+            {/* Your content goes here */}
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
+}
+
+  ;
+
+
 
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.02;
@@ -42,12 +85,15 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected, }) {
   );
 }
 
+
 export default function Map({ navigation }) {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const mapRef = useRef(null)
   const [showDirections, setShowDirections] = useState(false);
   const [latLong, setLatLong] = useState(null);
+
+
 
 
   const moveTo = async (position) => {
@@ -71,15 +117,16 @@ export default function Map({ navigation }) {
     moveTo(position);
   };
 
-  // const onPlaceSelected = (details, flag) => {
-  //   const set = flag === "origin" ? setOrigin : setDestination;
-  //   const position = {
-  //     latitude: details && details.geometry && details.geometry.location && details.geometry.location.lat ? details.geometry.location.lat() : 0,
-  //     longitude: details && details.geometry && details.geometry.location && details.geometry.location.lng ? details.geometry.location.lng() : 0,
-  //   };
-  //   set(position);
-  //   moveTo(position);
-  // };
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+
+  const handleOpenBottomSheet = () => {
+    setIsBottomSheetOpen(true);
+  };
+
+  const handleCloseBottomSheet = () => {
+    setIsBottomSheetOpen(false);
+  };
+
 
   return (
     <View style={styles.container}>
@@ -87,7 +134,9 @@ export default function Map({ navigation }) {
         ref={mapRef}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
-        initialRegion={INITIAL_POSITION}>
+        initialRegion={INITIAL_POSITION}
+        mapType='hybrid'
+      >
 
         {origin && <Marker coordinate={origin} />}
         {destination && <Marker coordinate={destination} />}
@@ -105,7 +154,7 @@ export default function Map({ navigation }) {
 
       </MapView>
       <View style={styles.searchContainer}>
-        <InputAutocomplete label="Origin"
+        <InputAutocomplete label="Where?"
           onPlaceSelected={(details) => {
             onPlaceSelected(details, "origin");
           }} />
@@ -113,7 +162,23 @@ export default function Map({ navigation }) {
           onPlaceSelected={(details) => {
             onPlaceSelected(details, "destination");
           }} />
-        <TouchableOpacity onPress={() => setShowDirections(true)}>
+        {/* <TouchableOpacity onPress={() => {
+        handleOpenBottomSheet();
+        setShowDirections(true)
+      }}>
+        <Text>Enter</Text>
+      </TouchableOpacity> */}
+        {/* <TouchableOpacity onPress={() => {
+                handleOpenBottomSheet(); // Call the handleOpenBottomSheet function here
+                setShowDirections(true);
+            }}>
+                <Text>Enter</Text>
+            </TouchableOpacity>
+      </View> */}
+        <TouchableOpacity onPress={() => {
+          handleOpenBottomSheet();
+          setShowDirections(true);
+        }}>
           <Text>Enter</Text>
         </TouchableOpacity>
       </View>
@@ -125,7 +190,54 @@ export default function Map({ navigation }) {
       }}>
         <Text> press here</Text>
       </Pressable>
+      <BottomDrawer isOpen={isBottomSheetOpen} onClose={handleCloseBottomSheet}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <View style={styles.drawerContent}>
 
+            <TrailsCard
+              title="Grouse Grind Trail"
+              time="2.5"
+              distance="2.5"
+              elevation="800"
+              sideText="Mother Nature's Stairmaster"
+              difficulty="HARD"
+            />
+            <TrailsCard
+              title="BCMC Trail"
+              time="2.5"
+              distance="2.9"
+              elevation="800"
+              sideText="Steep uphill climb through second-growth and old-growth forest"
+              difficulty="HARD"
+            />
+            <TrailsCard
+              title="Grouse Grind Trail"
+              time="2.5"
+              distance="2.5"
+              elevation="800"
+              sideText="Mother Nature's Stairmaster"
+              difficulty="INTERMEDIATE"
+            />
+            <TrailsCard
+              title="Flint & Feather Trail"
+              time="3.5"
+              distance="3.7"
+              elevation="900"
+              sideText="Mother Nature's Stairmaster"
+              difficulty="INTERMEDIATE"
+            />
+            {/* <Text style={styles.drawerTitle}>Directions</Text> */}
+            {/* <Text>Start: {origin ? `${origin.latitude}, ${origin.longitude}` : 'Select origin'}</Text>
+                        <Text>Destination: {destination ? `${destination.latitude}, ${destination.longitude}` : 'Select destination'}</Text> */}
+            {/* <TouchableOpacity onPress={() => setShowDirections(!showDirections)}>
+                            <Text style={styles.toggleDirectionsButton}>
+                                {showDirections ? 'Hide Directions' : 'Show Directions'}
+                            </Text>
+                        </TouchableOpacity> */}
+            {/* Additional controls or information can go here */}
+          </View>
+        </ScrollView>
+      </BottomDrawer>
       {/* <StatusBar style="auto" /> */}
     </View>
   );
@@ -136,7 +248,7 @@ const styles = StyleSheet.create({
     marginBottom: 50
   },
   container: {
-    flex: 1,
+
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -144,6 +256,15 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%'
+  },
+  scrollContainer: {
+
+
+  },
+  line: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 2,
+
   },
   searchContainer: {
     position: "absolute",
@@ -158,8 +279,28 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     top: Constants.statusBarHeight,
   },
+  lineContainer: {
+    width: '100%',
+  },
   input: {
     borderColor: "#888",
     borderWidth: 1,
   },
+  bottomSheet: {
+    width: '100%',
+    position: 'absolute',
+    justifyContent: 'flex-start',
+    alignItems: 'start',
+    backgroundColor: 'white',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    paddingVertical: 23,
+    // paddingHorizontal: 25,
+    bottom: 0,
+    borderWidth: 1,
+    borderColor: 'red'
+  },
+  content: {
+    paddingVertical: 16,
+  }
 });
