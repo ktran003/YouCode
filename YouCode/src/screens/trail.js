@@ -108,7 +108,7 @@ export default function Trail({ navigation, route }) {
                         </View>
                     </View>
                 </View>
-                <Pressable style={styles.startButton} onPress={() => navigation.navigate('Progress')}>
+                <Pressable onPress={() => navigation.navigate('Progress')}>
                     <Text style={styles.startButton}>Start Hike </Text>
                 </Pressable>
             </View>
@@ -231,8 +231,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 35,
         paddingVertical: 5,
         fontFamily: "Arimo_400Regular",
-        fontSize: 15,
+        fontSize: 20,
         textAlign: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginTop: 30
     }
 });

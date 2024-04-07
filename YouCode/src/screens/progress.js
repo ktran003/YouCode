@@ -45,7 +45,9 @@ export default function Progress({ navigation }) {
                     <Image style={styles.map} source={require('../assets/grouseMap.png')} />
                 </View>
                 <View style={styles.pauseContainer}>
-                    <Image style={styles.pause} source={require('../assets/pauseButton.png')} />
+                    <Pressable onPress={() => navigation.navigate('TrailComplete')}>
+                        <Image style={styles.pause} source={require('../assets/pauseButton.png')} />
+                    </Pressable>
                 </View>
                 <View style={styles.musicPlayer}>
                     <Image style={styles.album} source={require('../assets/music.png')} />

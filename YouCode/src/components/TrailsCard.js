@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     },
     sub: {
         fontSize: 11,
- 
+
         top: '4%',
     },
     sideRowContainer: {

@@ -127,7 +127,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import HeaderCard from '../components/headerCard';
 import BottomNav from './BottomNav';
 
-export default function TrailComplete() {
+export default function TrailComplete({ navigation }) {
     return (
         <View style={styles.container}>
             <HeaderCard
@@ -170,7 +170,7 @@ export default function TrailComplete() {
                 </TouchableOpacity>
 
             </View>
-            <BottomNav/>
+            {/* <BottomNav /> */}
         </View>
     );
 }

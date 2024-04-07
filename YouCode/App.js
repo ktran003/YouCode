@@ -145,9 +145,6 @@ export default function App() {
 
 
       <Stack.Navigator>
-
-        <Stack.Screen name="TrailComplete" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />
-
         <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />
         <Stack.Screen name="LandingPage" component={LandingPage}
           options={{
@@ -195,6 +192,7 @@ export default function App() {
           },
         }} />
         <Stack.Screen name="BottomNav" component={BottomNav} options={{ headerShown: false }} />
+        <Stack.Screen name="TrailComplete" component={TrailComplete} options={{ title: '', headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

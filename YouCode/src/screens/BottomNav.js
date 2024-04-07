@@ -52,14 +52,9 @@ const AccountIcon = () => (
 
 const BottomNav = () => {
   return (
-    <Tab.Navigator       
-    tabBarOptions={{
-      showLabel: false,
-      style: {
-        backgroundColor: 'black',
-      }
-    }}
-  
+    <Tab.Navigator
+      initialRouteName="Activities"
+      barStyle={{ backgroundColor: 'black' }}
     >
       <Tab.Screen name='Shop' component={Shop} options={{ tabBarIcon: ShopIcon }} />
       <Tab.Screen name='Community' component={Community} options={{ tabBarIcon: CommunityIcon }} />
@@ -117,7 +112,7 @@ export default BottomNav;
 
 // const BottomNav = () => {
 //   return (
-//     <Tab.Navigator       
+//     <Tab.Navigator
 //       tabBarOptions={{
 //         showLabel: true,
 //       }}
@@ -210,7 +205,7 @@ export default BottomNav;
 
 // const BottomNav = () => {
 //   return (
-//     <Tab.Navigator       
+//     <Tab.Navigator
 //       tabBarOptions={{
 //         showLabel: true,
 //       }}
@@ -260,5 +255,4 @@ export default BottomNav;
 
 // export default AppNavigator;
 
-}
 

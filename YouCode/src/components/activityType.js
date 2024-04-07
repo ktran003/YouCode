@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
         fontFamily: "Arimo_400Regular",
         color: 'white',
         // marginHorizontal: 5,
-        right:25,
+        right: 25,
         paddingTop: 80
     },
     image: {
         flex: 1,
         flexDirection: 'row',
         height: 110,
-        width: 410,
+        width: '100%',
         alignItems: 'baseline',
         justifyContent: 'space-between'
     }
