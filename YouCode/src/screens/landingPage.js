@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ActivityType from '../components/activityType';
+import HeaderCard from '../components/headerCard';
 
 export default function LandingPage({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView style={styles.view}>
+                <HeaderCard
+                title="ACTIVITIES"
+                />
                 <Pressable onPress={() => { navigation.navigate('Progress') }}>
                     <Text>Hiii</Text>
                 </Pressable>
@@ -33,10 +37,13 @@ export default function LandingPage({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
 
+    },
+    view: {
+        width:'100%'
     }
 });

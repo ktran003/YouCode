@@ -57,6 +57,9 @@ export default function Hiking({ navigation }) {
                     <Text style={styles.list}>Insect Repellent</Text>
                 </View>
             </View>
+
+            <Text style={styles.subtitles}>WHAT TO BRING</Text>
+
         </View>
     );
 }
@@ -111,6 +114,9 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: 'row',
+        alignSelf: 'center',
+        // justifyContent: 'space-around',
+        width: '95%'
 
     },
     column: {
@@ -118,7 +124,7 @@ const styles = StyleSheet.create({
         fontFamily: "Arimo_400Regular",
         fontSize: 12,
         justifyContent: 'space-evenly',
-        marginHorizontal: 10,
+        // marginHorizontal: 1,
     },
     subtitles: {
         marginTop: 30,
@@ -131,6 +137,7 @@ const styles = StyleSheet.create({
         
     },
     list: {
-        paddingBottom:10,
+        paddingBottom:12,
+        fontSize: 14
     }
 });
