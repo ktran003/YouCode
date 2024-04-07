@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
-import BottomDrawer from '../components/bottomDrawer';
+
 
 export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
 
             <Image source={require('../assets/logo.png')} />
+
             <View style={styles.signInButton}>
                 <Button
                     title="Sign In"
