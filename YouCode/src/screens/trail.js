@@ -1,4 +1,4 @@
-import { Button, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Button, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -108,9 +108,13 @@ export default function Trail({ navigation, route }) {
                         </View>
                     </View>
                 </View>
-                <Pressable onPress={() => navigation.navigate('Progress')}>
-                    <Text style={styles.startButton}>Start Hike </Text>
-                </Pressable>
+                <View style={styles.clothes}>
+                    <Text style={styles.title}>Don't forget your</Text>
+                    <Image source={require('../assets/clothes.png')} />
+                    <Pressable onPress={() => navigation.navigate('Progress')}>
+                        <Text style={styles.startButton}>Start Hike </Text>
+                    </Pressable>
+                </View>
             </View>
         );
     }
@@ -125,6 +129,9 @@ export default function Trail({ navigation, route }) {
 
 
 const styles = StyleSheet.create({
+    clothes: {
+        margiLeft: 20
+    },
     tempVals: {
         flexDirection: 'row',
         alignContent: 'flex-start',

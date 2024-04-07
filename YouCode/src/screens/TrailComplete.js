@@ -123,7 +123,7 @@
 
 
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Pressable, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import HeaderCard from '../components/headerCard';
 import BottomNav from './BottomNav';
 
@@ -163,7 +163,9 @@ export default function TrailComplete({ navigation }) {
 
             <View style={styles.rowContainer}>
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Add Reflections</Text>
+                    <Pressable onPress={() => navigation.navigate('LandingPage')}>
+                        <Text style={styles.buttonText}>Add Reflections</Text>
+                    </Pressable>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button2}>
                     <Text style={styles.buttonText2}>Share</Text>
