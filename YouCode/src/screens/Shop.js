@@ -4,7 +4,7 @@ export default function Shop() {
     return (
 <View>
     <View style={styles.box}></View>
-<Image source={require('../assets/shopPage.png')} />
+<Image style={styles.image} source={require('../assets/shopPage.png')} />
 </View>
     );
 }
@@ -12,7 +12,11 @@ export default function Shop() {
 const styles = StyleSheet.create({
     box: {
         backgroundColor: 'black',
-        height:50,
+        height:80,
+        width: '100%'
+    },
+    image: {
+        alignSelf: 'center',
         width: '100%'
     }
 });
