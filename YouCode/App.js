@@ -10,9 +10,14 @@ import Discover from './src/screens/discover';
 import LandingPage from './src/screens/landingPage';
 import Map from './src/screens/map';
 import Weather from './src/screens/weather';
+
 import BottomNav from './src/screens/BottomNav';
 import Hiking from './src/screens/hiking';
 import Progress from './src/screens/progress';
+
+
+import Hiking from './src/screens/hiking';
+
 
 
 const Stack = createNativeStackNavigator();

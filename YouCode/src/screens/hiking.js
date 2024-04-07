@@ -38,23 +38,23 @@ export default function Hiking({ navigation }) {
             </ImageBackground>
             <Text style={styles.subtitles}>WHAT TO BRING</Text>
             <View style={styles.container}>
-                <View style={[styles.column, { flex: 1 }]}>
-                    <Text>Backpack</Text>
-                    <Text>Water</Text>
-                    <Text>Food & Snacks</Text>
-                    <Text>Hiking Shoes</Text>
+                <View style={[styles.column]}>
+                    <Text style={styles.list}>Backpack</Text>
+                    <Text style={styles.list}>Water</Text>
+                    <Text style={styles.list}>Food & Snacks</Text>
+                    <Text style={styles.list}>Hiking Shoes</Text>
                 </View>
-                <View style={[styles.column, { flex: 2 }]}>
-                    <Text>Layers</Text>
-                    <Text>Light Jacket</Text>
-                    <Text>Navigation Tools</Text>
-                    <Text>First-Aid Kit</Text>
+                <View style={[styles.column]}>
+                    <Text style={styles.list}>Layers</Text>
+                    <Text style={styles.list}>Light Jacket</Text>
+                    <Text style={styles.list}>Navigation Tools</Text>
+                    <Text style={styles.list}>First-Aid Kit</Text>
                 </View>
-                <View style={styles.column[styles.column, { flex: 3 }]}>
-                    <Text>Multi Tool</Text>
-                    <Text>Flashlight</Text>
-                    <Text>Sun Protection</Text>
-                    <Text>Insect Repellent</Text>
+                <View style={styles.column[styles.column]}>
+                    <Text style={styles.list}>Multi Tool</Text>
+                    <Text style={styles.list}>Flashlight</Text>
+                    <Text style={styles.list}>Sun Protection</Text>
+                    <Text style={styles.list}>Insect Repellent</Text>
                 </View>
             </View>
         </View>
@@ -110,13 +110,15 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     container: {
+        flexDirection: 'row',
+
     },
     column: {
         flex: 1,
         fontFamily: "Arimo_400Regular",
         fontSize: 12,
         justifyContent: 'space-evenly',
-        marginHorizontal: 10
+        marginHorizontal: 10,
     },
     subtitles: {
         marginTop: 30,
@@ -124,6 +126,11 @@ const styles = StyleSheet.create({
         color: 'black',
         marginHorizontal: 25,
         fontSize: 22,
-        letterSpacing: 1
+        letterSpacing: 1,
+        paddingBottom: 10
+        
+    },
+    list: {
+        paddingBottom:10,
     }
 });
