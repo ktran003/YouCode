@@ -18,29 +18,17 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator >
         <Stack.Screen
-        name="Discover"
-        component={Discover}
-        options={{
-          title: 'DISCOVER',
-          headerStyle: { backgroundColor: 'black' },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }
-        }}
-        />
-        {/* <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ title: 'Login Here' }}
-        /> */}
-        <Stack.Screen screenOptions={{headerShown: false}}
-        name="map"
-        component={map}
+        />
+        <Stack.Screen screenOptions={{ headerShown: false }}
+          name="map"
+          component={map}
         />
         <Stack.Screen
-        name="bottomDrawer"
-        component={BottomDrawer}
+          name="bottomDrawer"
+          component={BottomDrawer}
         />
 
         <Stack.Screen
@@ -64,6 +52,18 @@ export default function App() {
           name="Weather"
           component={Weather}
           options={{ title: '' }}
+        />
+        <Stack.Screen
+          name="Discover"
+          component={Discover}
+          options={{
+            title: 'DISCOVER',
+            headerStyle: { backgroundColor: 'black' },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            }
+          }}
         />
 
       </Stack.Navigator>
