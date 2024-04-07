@@ -1,28 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './src/screens/loginScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image source={require('./logo.png')} />
-      <View style={styles.signInButton}>
-        <Button
-          title="Sign In"
-          color="#FEFEFE"
-          onPress={() => Alert.alert('Simple Button pressed')}
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ title: 'Login Here' }}
         />
-      </View>
-      <View style={styles.createAccountButton}>
-        <Button
-          title="Create An Account"
-          color="#000000"
-          onPress={() => Alert.alert('Simple Button pressed')}
-        />
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
-  );
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -31,19 +27,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  signInButton: {
-    backgroundColor: 'black',
-    marginTop: 20,
-    paddingHorizontal: 100
-  },
-  createAccountButton: {
-    backgroundColor: 'white',
-    bordercolor: 'black',
-    borderWidth: 2,
-    marginTop: 15,
-    paddingHorizontal: 50
   }
-
-
 });
