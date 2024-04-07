@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, Dimensions, View, Text, TouchableOpacity, Modal, ScrollView } from 'react-native';
+
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { GOOGLE_API_KEY } from '../../environments';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Constants from 'expo-constants';
+
 import { startTransition, useRef, useState } from 'react';
+
 import MapViewDirections from "react-native-maps-directions";
 import TrailsCard from '../components/TrailsCard';
+
 
 
 
@@ -46,6 +51,8 @@ const BottomDrawer = ({ children, isOpen, onClose }) => {
 
     ;
 
+
+
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.02;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
@@ -58,6 +65,7 @@ const INITIAL_POSITION = {
 
 
 function InputAutocomplete({ label, placeholder, onPlaceSelected, }) {
+
     return (
         <>
             <Text>{label}</Text>
@@ -78,11 +86,13 @@ function InputAutocomplete({ label, placeholder, onPlaceSelected, }) {
     );
 }
 
+
 export default function Map() {
-    const [origin, setOrigin] = useState(null);
-    const [destination, setDestination] = useState(null);
-    const mapRef = useRef(null)
-    const [showDirections, setShowDirections] = useState(false);
+  const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
+  const mapRef = useRef(null)
+  const [showDirections, setShowDirections] = useState(false);
+
 
 
     const moveTo = async (position) => {
@@ -104,7 +114,6 @@ export default function Map() {
         set(position);
         moveTo(position);
     };
-
 
     const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 

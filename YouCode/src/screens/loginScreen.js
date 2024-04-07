@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import BottomDrawer from '../components/bottomDrawer';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
             
@@ -12,7 +12,7 @@ export default function LoginScreen() {
                 <Button
                     title="Sign In"
                     color="#FEFEFE"
-                    onPress={() => Alert.alert('Simple Button pressed')}
+                    onPress={() => navigation.navigate('LandingPage')}
                 />
             </View>
             <View style={styles.createAccountButton}>
