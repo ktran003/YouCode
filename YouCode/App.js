@@ -10,6 +10,8 @@ import Discover from './src/screens/discover';
 import LandingPage from './src/screens/landingPage';
 import Map from './src/screens/map';
 import Weather from './src/screens/weather';
+import BottomNav from './src/screens/BottomNav';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -17,11 +19,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator >
+      <Stack.Screen
+        name = "BottomNav"
+        component={BottomNav}
+        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ title: 'Login Here' }}
         />
+
+
+        
         <Stack.Screen screenOptions={{ headerShown: false }}
           name="map"
           component={map}
@@ -65,6 +74,11 @@ export default function App() {
             }
           }}
         />
+        {/* <Stack.Screen
+        name = "BottomNav"
+        component={BottomNav}
+        /> */}
+        {/* <BottomNav/> */}
 
       </Stack.Navigator>
     </NavigationContainer>
