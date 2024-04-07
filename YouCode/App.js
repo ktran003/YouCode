@@ -12,8 +12,12 @@ import Map from './src/screens/map';
 import Weather from './src/screens/weather';
 
 import BottomNav from './src/screens/BottomNav';
+import Hiking from './src/screens/hiking';
+import Progress from './src/screens/progress';
+
 
 import Hiking from './src/screens/hiking';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -77,7 +81,11 @@ export default function App() {
           component={Weather}
           options={{ title: '' }}
         />
-
+        <Stack.Screen
+          name="Progress"
+          component={Progress}
+          options={{ title: '', headerStyle: { backgroundColor: 'black' } }}
+        />
         <Stack.Screen
           name="Discover"
           component={Discover}
