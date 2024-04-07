@@ -260,5 +260,4 @@ export default BottomNav;
 
 // export default AppNavigator;
 
-}
 
