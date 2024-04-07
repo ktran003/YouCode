@@ -1,9 +1,16 @@
 import { StyleSheet, Dimensions, Image, View, Text, TouchableOpacity, Modal, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
+import HeaderCard from '../components/headerCard';
 
 export default function Discover() {
     return (
+        
         <View style={styles.discoverContainer}>
+                        <HeaderCard
+                title="DISCOVER"
+                />
+            <ScrollView style={styles.scroll}>
+
 
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Find your next adventure</Text>
@@ -16,22 +23,26 @@ export default function Discover() {
                 <Image style={styles.smallImage} source={require('../assets/discover2.png')} />
                 <Image style={styles.smallImage} source={require('../assets/discover3.png')} />
             </View>
+            </ScrollView>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    scroll: {
+        width:'100%'
+    },
     header: {
-        top: 15,
+        top: 25,
         left: 5,
         fontWeight: 'bold',
         paddingBottom: 25
     },
     discoverContainer: {
-        top: 30
+
     },
     bigImage: {
-
+        top:15,
         alignSelf: 'center'
     },
     button: {
@@ -40,13 +51,14 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 40,
         borderRadius: 7,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        top:10
 
     },
     rowContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        paddingTop: 13
+        paddingTop: 30
 
     },
     smallImage: {

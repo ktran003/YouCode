@@ -13,11 +13,11 @@ const HeaderCard = (props) => {
 const styles = StyleSheet.create({
     card: {
         backgroundColor: 'black',
-        height: 100
+        height: 80
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 17,
         color: 'white',
         alignSelf: 'center',
         top:50
