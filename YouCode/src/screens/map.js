@@ -11,6 +11,7 @@ import { startTransition, useRef, useState } from 'react';
 
 import MapViewDirections from "react-native-maps-directions";
 import TrailsCard from '../components/TrailsCard';
+import BottomNav from './BottomNav';
 
 
 
@@ -158,10 +159,10 @@ export default function Map({ navigation }) {
           onPlaceSelected={(details) => {
             onPlaceSelected(details, "origin");
           }} />
-        <InputAutocomplete label="Origin"
+        {/* <InputAutocomplete label="Origin"
           onPlaceSelected={(details) => {
             onPlaceSelected(details, "destination");
-          }} />
+          }} /> */}
         {/* <TouchableOpacity onPress={() => {
         handleOpenBottomSheet();
         setShowDirections(true)
@@ -245,6 +246,7 @@ export default function Map({ navigation }) {
           </View>
         </ScrollView>
       </BottomDrawer>
+      <BottomNav/>
       {/* <StatusBar style="auto" /> */}
     </View>
   );

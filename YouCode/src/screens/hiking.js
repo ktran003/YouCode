@@ -1,4 +1,7 @@
-import { Button, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, Button, Image, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import BottomNav from './BottomNav';
+import Map from './map';
+
 import {
     useFonts,
     Arimo_400Regular,
@@ -26,6 +29,8 @@ export default function Hiking({ navigation }) {
 
     return (
         <View>
+            <ScrollView>
+            
             <ImageBackground source={require('../assets/hikingPage.png')} style={styles.image}>
                 <View style={styles.header}>
                     <Text style={styles.activityName}>HIKING</Text>
@@ -58,14 +63,24 @@ export default function Hiking({ navigation }) {
                 </View>
             </View>
 
-            <Text style={styles.subtitles}>WHAT TO BRING</Text>
+            <Text style={styles.subtitles2}>FOR YOU</Text>
+            <View>
+                <Image style={styles.image2} source={require('../assets/Frame1.png')} />
+            </View>
 
+            <BottomNav style={styles.bar}/>
+
+            </ScrollView>
         </View>
     );
 }
 
 
 const styles = StyleSheet.create({
+    bar: {
+        bottom: 90
+
+    },
     header: {
         flex: 1,
         flexDirection: 'row',
@@ -127,7 +142,17 @@ const styles = StyleSheet.create({
         // marginHorizontal: 1,
     },
     subtitles: {
-        marginTop: 30,
+        marginTop: 20,
+        fontFamily: "Arimo_700Bold",
+        color: 'black',
+        marginHorizontal: 25,
+        fontSize: 22,
+        letterSpacing: 1,
+        paddingBottom: 10
+        
+    },
+    subtitles2: {
+        marginTop: 10,
         fontFamily: "Arimo_700Bold",
         color: 'black',
         marginHorizontal: 25,
@@ -139,5 +164,8 @@ const styles = StyleSheet.create({
     list: {
         paddingBottom:12,
         fontSize: 14
+    },
+    image2: {
+        alignSelf: 'center'
     }
 });
