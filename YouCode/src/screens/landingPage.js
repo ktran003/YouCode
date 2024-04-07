@@ -6,11 +6,17 @@ import HeaderCard from '../components/headerCard';
 export default function LandingPage({ navigation }) {
 
     return (
-        <View style={styles.container}>
-            <ScrollView style={styles.view}>
-                <HeaderCard
-                    title="ACTIVITIES"
+
+        <View >
+            <HeaderCard
+                title="ACTIVITIES"
                 />
+            <ScrollView style={styles.view}>
+                
+                {/* <Pressable onPress={() => { navigation.navigate('Progress') }}>
+                    <Text>Hiii</Text>
+                </Pressable> */}
+
                 <ActivityType image={require('../assets/mindfulness.png')}
                     activity={'MINDFULNESS'} points={'250 points'} />
                 <Pressable onPress={() => { navigation.navigate('Hiking') }}>
@@ -27,6 +33,7 @@ export default function LandingPage({ navigation }) {
                     activity={'WALKING'} points={'500 points'} />
                 <ActivityType image={require('../assets/yoga.png')}
                     activity={'YOGA'} points={'500 points'} />
+
             </ScrollView>
         </View>
     );

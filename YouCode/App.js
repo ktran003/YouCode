@@ -124,7 +124,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/loginScreen';
-import map from './src/screens/map';
+// import map from './src/screens/map';
 // import BottomDrawer from './src/components/bottomDrawer';
 import Discover from './src/screens/discover';
 import LandingPage from './src/screens/landingPage';
@@ -133,14 +133,21 @@ import Weather from './src/screens/weather';
 import Hiking from './src/screens/hiking';
 import Progress from './src/screens/progress';
 import BottomNav from './src/screens/BottomNav'; // Import BottomNav here
+import TrailComplete from './src/screens/TrailComplete';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+
     <NavigationContainer>
+
+
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Here' }} />
+
+      <Stack.Screen name="TrailComplete" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />
+
+        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Here', headerShown: false }} />
         <Stack.Screen name="LandingPage" component={LandingPage}
           options={{
             title: 'Activities',
@@ -178,7 +185,7 @@ export default function App() {
           },
         }} />
         <Stack.Screen name="BottomNav" component={BottomNav} options={{ headerShown: false }} />
-      </Stack.Navigator>
+      </Stack.Navigator> 
     </NavigationContainer>
   );
 }
