@@ -163,7 +163,7 @@ export default function TrailComplete({ navigation }) {
 
             <View style={styles.rowContainer}>
                 <TouchableOpacity style={styles.button}>
-                    <Pressable onPress={() => navigation.navigate('LandingPage')}>
+                    <Pressable onPress={() => navigation.navigate('BottomNav')}>
                         <Text style={styles.buttonText}>Add Reflections</Text>
                     </Pressable>
                 </TouchableOpacity>
