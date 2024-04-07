@@ -4,6 +4,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/loginScreen';
+import LandingPage from './src/screens/landingPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,18 @@ export default function App() {
           name="Login"
           component={LoginScreen}
           options={{ title: 'Login Here' }}
+        />
+        <Stack.Screen
+          name="LandingPage"
+          component={LandingPage}
+          options={{
+            title: 'Activities',
+            headerStyle: { backgroundColor: 'black' },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
