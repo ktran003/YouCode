@@ -7,6 +7,9 @@ export default function LandingPage({ navigation }) {
     return (
         <View style={styles.container}>
             <ScrollView>
+                <Pressable onPress={() => { navigation.navigate('Progress') }}>
+                    <Text>Hiii</Text>
+                </Pressable>
                 <ActivityType image={require('../assets/mindfulness.png')}
                     activity={'MINDFULNESS'} points={'250 points'} />
                 <Pressable onPress={() => { navigation.navigate('Hiking') }}>
