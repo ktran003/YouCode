@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ActivityType from '../components/activityType';
 
 export default function LandingPage({ navigation }) {
@@ -9,8 +9,10 @@ export default function LandingPage({ navigation }) {
             <ScrollView>
                 <ActivityType image={require('../assets/mindfulness.png')}
                     activity={'MINDFULNESS'} points={'250 points'} />
-                <ActivityType image={require('../assets/hiking.png')}
-                    activity={'HIKING'} points={'500 points'} />
+                <Pressable onPress={() => { navigation.navigate('Map') }}>
+                    <ActivityType image={require('../assets/hiking.png')}
+                        activity={'HIKING'} points={'500 points'} />
+                </Pressable>
                 <ActivityType image={require('../assets/biking.png')}
                     activity={'BIKING'} points={'500 points'} />
                 <ActivityType image={require('../assets/running.png')}

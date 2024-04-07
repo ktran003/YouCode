@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/loginScreen';
 import LandingPage from './src/screens/landingPage';
+import Map from './src/screens/map';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,11 @@ export default function App() {
               fontWeight: 'bold',
             },
           }}
+        />
+        <Stack.Screen
+          name="Map"
+          component={Map}
+          options={{ title: '' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

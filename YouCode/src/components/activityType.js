@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import {
     useFonts,
     Arimo_400Regular,
@@ -26,6 +26,7 @@ export default function ActivityType({ image, activity, points }) {
 
     return (
         <View style={styles.container}>
+
             <ImageBackground source={image} style={styles.image}>
                 <Text style={styles.activityName}>{activity}</Text>
                 <Text style={styles.pointValue}>{points}</Text>
