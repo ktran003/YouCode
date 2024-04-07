@@ -193,7 +193,13 @@ export default function Map({ navigation }) {
       <BottomDrawer isOpen={isBottomSheetOpen} onClose={handleCloseBottomSheet}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <View style={styles.drawerContent}>
-            <Pressable onPress={() => { setIsBottomSheetOpen(false); navigation.navigate('Progress'); }}>
+            <Pressable onPress={() => {
+              setIsBottomSheetOpen(false);
+              if (latLong && latLong.latitude && latLong.longitude) {
+                console.log(latLong);
+                navigation.navigate('Trail', { latitude: latLong.latitude, longitude: latLong.longitude });
+              }
+            }}>
               <TrailsCard
                 title="Grouse Grind Trail"
                 time="2.5"

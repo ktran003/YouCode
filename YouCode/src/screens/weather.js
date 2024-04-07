@@ -44,7 +44,7 @@ export default function Weather({ navigation, route }) {
                         name={weatherConditions[weatherCondition].icon}
                         color={'#fff'}
                     />
-                    <MaterialCommunityIcons size={48} name="weather-sunny" color={'#fff'} />
+                    <MaterialCommunityIcons size={48} name="weather-sunny" color={'#666666'} />
                     <Text style={styles.tempText}>{temperature}</Text>
                 </View>
                 <View style={styles.bodyContainer}>

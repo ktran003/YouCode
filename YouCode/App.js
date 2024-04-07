@@ -133,6 +133,7 @@ import Weather from './src/screens/weather';
 import Hiking from './src/screens/hiking';
 import Progress from './src/screens/progress';
 import BottomNav from './src/screens/BottomNav'; // Import BottomNav here
+import Trail from './src/screens/trail';
 
 const Stack = createNativeStackNavigator();
 
@@ -153,6 +154,15 @@ export default function App() {
         <Stack.Screen name="Hiking" component={Hiking}
           options={{
             title: 'Activities',
+            headerStyle: { backgroundColor: 'black' },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }} />
+        <Stack.Screen name="Trail" component={Trail}
+          options={{
+            title: 'Trails',
             headerStyle: { backgroundColor: 'black' },
             headerTintColor: '#fff',
             headerTitleStyle: {
