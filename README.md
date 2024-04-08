@@ -1,3 +1,4 @@
+# Winner of YouCode 2024🏆
 
 ## Inspiration
 We noticed a growing disconnect between people and nature, exacerbated by the digital age. We wanted to create a solution that not only encouraged outdoor activities but also promoted holistic well-being and eco-friendly behaviors, ultimately fostering a deeper connection with the natural world. 
